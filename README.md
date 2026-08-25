@@ -8,7 +8,7 @@ Use this action in a GitHub Actions workflow to start a Redis cluster before run
 
 ```yaml
 - name: Setup Redis cluster
-  uses: gorse-cloud/redis-cluster@<tag>
+  uses: gorse-io/redis-cluster@<tag>
 ```
 
 The action:
