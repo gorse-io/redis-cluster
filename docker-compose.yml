@@ -1,51 +1,53 @@
+# The plaintext cluster bus stays on the project network; only the runner
+# loopback publishes client ports for this CI fixture.
 services:
   redis-node-0:
     image: docker.io/library/redis:8
     command: >
       redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000 --appendonly yes --protected-mode no
+      --cluster-bus-port-protected-mode no --cluster-node-timeout 5000 --appendonly yes --protected-mode no
     ports:
-      - 7000:6379
+      - 127.0.0.1:7000:6379
 
   redis-node-1:
     image: docker.io/library/redis:8
     command: >
       redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000 --appendonly yes --protected-mode no
+      --cluster-bus-port-protected-mode no --cluster-node-timeout 5000 --appendonly yes --protected-mode no
     ports:
-      - 7001:6379
+      - 127.0.0.1:7001:6379
 
   redis-node-2:
     image: docker.io/library/redis:8
     command: >
       redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000 --appendonly yes --protected-mode no
+      --cluster-bus-port-protected-mode no --cluster-node-timeout 5000 --appendonly yes --protected-mode no
     ports:
-      - 7002:6379
+      - 127.0.0.1:7002:6379
 
   redis-node-3:
     image: docker.io/library/redis:8
     command: >
       redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000 --appendonly yes --protected-mode no
+      --cluster-bus-port-protected-mode no --cluster-node-timeout 5000 --appendonly yes --protected-mode no
     ports:
-      - 7003:6379
+      - 127.0.0.1:7003:6379
 
   redis-node-4:
     image: docker.io/library/redis:8
     command: >
       redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000 --appendonly yes --protected-mode no
+      --cluster-bus-port-protected-mode no --cluster-node-timeout 5000 --appendonly yes --protected-mode no
     ports:
-      - 7004:6379
+      - 127.0.0.1:7004:6379
 
   redis-node-5:
     image: docker.io/library/redis:8
     command: >
       redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000 --appendonly yes --protected-mode no
+      --cluster-bus-port-protected-mode no --cluster-node-timeout 5000 --appendonly yes --protected-mode no
     ports:
-      - 7005:6379
+      - 127.0.0.1:7005:6379
 
   redis-cluster-init:
     image: docker.io/library/redis:8
